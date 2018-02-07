@@ -56,7 +56,6 @@ Container comes with a default logback.xml (Dockerfiles/RSK-Node/rsk-logback.con
 * rpc > cors = "localhost"
 * rpc > enabled = true
 * rpc > port = 4444
-* peer > listen.port is disabled
 
 If you wish to modify these, add the following flags to ```docker run``` command:
 
