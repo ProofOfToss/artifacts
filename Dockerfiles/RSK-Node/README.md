@@ -53,7 +53,7 @@ Container comes with a default logback.xml (Dockerfiles/RSK-Node/rsk-logback.con
 * miner > client.enabled = false
 * solc.path = /bin/false
 * rpc > modules = allowed only eth and net
-* rpc > cors = "localhost"
+* rpc > cors = "\*"
 * rpc > enabled = true
 * rpc > port = 4444
 
