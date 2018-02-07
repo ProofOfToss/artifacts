@@ -26,6 +26,10 @@ RUN \
 # Supervisod CONF
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# RSK conf
+ADD rsk-node.conf /etc/rsk/node.conf
+ADD rsk-logback.xml /etc/rsk/logback.xml
+
 ## MAINNET
 EXPOSE 4444
 EXPOSE 5050

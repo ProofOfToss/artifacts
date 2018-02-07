@@ -46,3 +46,19 @@ docker run -d --name testnet-node-01  -p 4444:4444 -p 50505:50505 testnet
 ```bash
 docker run -d --name regtest-node-01  -p 4444:4444 -p 30305:30305 regtest
 ```
+
+Container comes with a default logback.xml (Dockerfiles/RSK-Node/rsk-logback.conf) and rsk.conf (Dockerfiles/RSK-Node/rsk-node.conf). The most important default values for rsk.conf are:
+
+* configuration is for testnet network
+* miner > client.enabled = false
+* solc.path = /bin/false
+* rpc > modules = allowed only eth and net
+* rpc > cors = "localhost"
+* rpc > enabled = true
+* rpc > port = 4444
+* peer > listen.port is disabled
+
+If you wish to modify these, add the following flags to ```docker run``` command:
+
+* -v /my/rsk-conf.conf:/etc/rsk/node.conf
+* -v /my/rsk-logback.xml:/etc/rsk/logback.xml

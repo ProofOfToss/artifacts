@@ -21,12 +21,14 @@ RUN \
   (echo rskj shared/accepted-rsk-license-v1-1 select true | /usr/bin/debconf-set-selections )&& \
   apt-get install -y --no-install-recommends rskj && \
   apt-get clean && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -f /etc/rsk/node.conf && \
-  ln -s /etc/rsk/testnet.conf /etc/rsk/node.conf
+  rm -rf /var/lib/apt/lists/*
 
 # Supervisod CONF
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# RSK conf
+ADD rsk-node.conf /etc/rsk/node.conf
+ADD rsk-logback.xml /etc/rsk/logback.xml
 
 EXPOSE 4444
 EXPOSE 50505
